@@ -48,7 +48,7 @@ class Vector():
     def buscar(self):
         num = int(input('Ingresa el número a buscar: '))
         ban = True
-        for i in range(len(self.__vec)):
+        for i in range(self.__tam):
             if self.__vec[i] == num:
                 if ban:
                     print('Número encontrado en las posiciones: ')
@@ -60,26 +60,26 @@ class Vector():
             
     def suma(self):
         con = 0
-        for i in range(len(self.__vec)):
+        for i in range(self.__tam):
             con += self.__vec[i]
         print('-----Suma-----')
         print(f"La suma de los elementos es igual a: {con}")
         
     def promedio(self):
         prom = 0
-        for i in range(len(self.__vec)):
+        for i in range(self.__tam):
             prom += self.__vec[i]
-        prom /= len(self.__vec)
+        prom /= self.__tam
         print('-----Promedio-----')
         print(f"El promedio de los elementos es igual a: {prom:.0f}")
         
     def nombres(self):
         print('-----Nombres-----')
-        for i in range(len(self.__vec)):
+        for i in range(self.__tam):
             nom = ''
             
             while len(nom) == 0:
-                nom = input(f"{i + 1}/{len(self.__vec)} Ingresa un nombre: ")
+                nom = input(f"{i + 1}/{self.__tam} Ingresa un nombre: ")
                 
             self.__vec[i] = nom
             
