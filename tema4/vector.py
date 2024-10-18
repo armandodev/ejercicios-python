@@ -1,9 +1,5 @@
 import random
 
-# Construir un vector de N elementos enteros, genera los valores de sus posiciones de manera aleatoria
-# en un rango de 1 a 100 incluyendo los límites, posteriormente calcula y presenta el promedio de todos
-# los elementos
-
 class Vector():
     def tamaño(self):
         self.__tam = 0
@@ -15,6 +11,11 @@ class Vector():
         self.__vec = [int(input(f"{i + 1}/{self.__tam} Ingresa un número: ")) for i in range(self.__tam)]
         
     def mostrar(self):
+        print('-----Vector-----')
+        for i in self.__vec:
+            print(f"{i}")
+        
+    def mostrar_l(self):
         print('-----Vector-----')
         print(f"{self.__vec}")
         
@@ -71,3 +72,14 @@ class Vector():
         prom /= len(self.__vec)
         print('-----Promedio-----')
         print(f"El promedio de los elementos es igual a: {prom:.0f}")
+        
+    def nombres(self):
+        print('-----Nombres-----')
+        for i in range(len(self.__vec)):
+            nom = ''
+            
+            while len(nom) == 0:
+                nom = input(f"{i + 1}/{len(self.__vec)} Ingresa un nombre: ")
+                
+            self.__vec[i] = nom
+            
