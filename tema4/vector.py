@@ -83,3 +83,8 @@ class Vector():
                 
             self.__vec[i] = nom
             
+    def ordenar(self):
+        for _ in range(self.__tam):
+            for i in range(self.__tam - 1):
+                if self.__vec[i] > self.__vec[i + 1]:
+                    self.__vec[i], self.__vec[i + 1] = self.__vec[i + 1], self.__vec[i]
