@@ -6,7 +6,7 @@ def main():
     obv.rango()
     obv.mostrar_l()
     obv.ordenar()
-    obv.mostrar()
+    obv.mostrar_l()
     
 if __name__ == '__main__':
     main()
