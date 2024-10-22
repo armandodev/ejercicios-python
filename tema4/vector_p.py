@@ -4,7 +4,7 @@ def main():
     obv = Vector()
     obv.tamaño()
     obv.valores()
-    obv.mostrar()
+    obv.mostrar_l()
     
 if __name__ == '__main__':
     main()

@@ -4,7 +4,7 @@ def main():
     obv = Vector()
     obv.tamaño()
     obv.rango()
-    obv.mostrar()
+    obv.mostrar_l()
     obv.promedio()
     
 if __name__ == '__main__':

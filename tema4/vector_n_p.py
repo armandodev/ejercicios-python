@@ -4,7 +4,7 @@ def main():
     obv = Vector()
     obv.tamaño()
     obv.rango()
-    obv.mostrar()
+    obv.mostrar_l()
     obv.mayor()
     obv.menor()
     
