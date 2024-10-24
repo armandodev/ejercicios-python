@@ -1,3 +1,6 @@
+# Construir un arreglo asignarle valores, presentarlo y mostrar
+# los elementos de la diagonal principal o el mensaje que indique
+# que la matriz no tiene diagonal
 import random
 
 class Matriz:
@@ -31,12 +34,37 @@ class Matriz:
         for ren in range(len(self.__mat_1)):
             for col in range(len(self.__mat_1[0])):
                 self.__mat_3[ren][col] = self.__mat_1[ren][col] + self.__mat_2[ren][col]
+            
+    def tamañop(self):
+        print('-----Tamaño de las matrizes-----')
+        ren_1 = 0
+        col_1 = 0
+        ren_2 = 0
+        col_2 = 0
+        while ren_1 < 2 or col_1 < 2 or ren_2 < 2 or col_2 < 2:
+            print('-----Primera Matriz-----')
+            ren_1 = int(input('Ingresa la cantidad de renglones: '))
+            col_1 = int(input('Ingresa la cantidad de columnas: '))
+            print('-----Segunda Matriz-----')
+            ren_2 = int(input('Ingresa la cantidad de renglones: '))
+            col_2 = int(input('Ingresa la cantidad de columnas: '))
+        self.__mat_1 = [[0 for _ in range(col_1)] for _ in range(ren_1)]
+        self.__mat_2 = [[0 for _ in range(col_2)] for _ in range(ren_2)]
+        self.__mat_3 = [[0 for _ in range(col_2)] for _ in range(ren_1)]
                 
-    def multiplicación_3(self):
+    def aleatoriosp(self):
         for ren in range(len(self.__mat_1)):
             for col in range(len(self.__mat_1[0])):
-                for k in range(len(self.__mat_1)):
-                    self.__mat_3[ren][col] += self.__mat_1[ren][k] * self.__mat_2[k][col]
+                self.__mat_1[ren][col] = random.randint(1, 10)
+        for ren in range(len(self.__mat_2)):
+            for col in range(len(self.__mat_2[0])):
+                self.__mat_2[ren][col] = random.randint(1, 10)
+                
+    def multiplicación_3(self):
+        for ren in range(len(self.__mat_3)):
+            for col in range(len(self.__mat_3[0])):
+                for i in range(len(self.__mat_2)):
+                    self.__mat_3[ren][col] += self.__mat_1[ren][i] * self.__mat_2[i][col]
                 
     def mostrar_3(self):
         print('-----Matriz 1-----')
@@ -149,3 +177,11 @@ class Matriz:
             i[0] = input('Número de control: ')
             i[1] = input('Nombre: ').upper()
             i[2] = input('Promedio: ')
+            
+    def diagonal(self):
+        print('-----Diagonal-----')
+        if len(self.__mat) == len(self.__mat[0]):
+            for ren in range(len(self.__mat)):
+                print(f"{self.__mat[ren][ren]}", end=' ')
+        else:
+            print("La matriz no tiene diagonal")

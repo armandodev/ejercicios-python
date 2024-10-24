@@ -2,10 +2,10 @@ from tema4.matriz import Matriz
 
 def main():
     obm = Matriz()
-    obm.tamañop()
-    obm.aleatoriosp()
-    obm.multiplicación_3()
-    obm.mostrar_3()
+    obm.tamaño()
+    obm.rango()
+    obm.mostrar()
+    obm.diagonal()
     
 if __name__ == '__main__':
     main()
