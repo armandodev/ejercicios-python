@@ -12,7 +12,7 @@ class Matriz:
             ren = int(input('Ingresa la cantidad de renglones: '))
             col = int(input('Ingresa la cantidad de columnas: '))
             self.__mat = [[0 for _ in range(col)] for _ in range(ren)]
-        
+
     def tamaño_3(self):
         print('-----Tamaño de las matrizes-----')
         ren = 0
@@ -23,7 +23,7 @@ class Matriz:
         self.__mat_1 = [[random.randint(1, 10) for _ in range(col)] for _ in range(ren)]
         self.__mat_2 = [[random.randint(1, 10) for _ in range(col)] for _ in range(ren)]
         self.__mat_3 = [[0 for _ in range(col)] for _ in range(ren)]
-                
+
     def aleatorios_3(self):
         for ren in range(len(self.__mat_1)):
             for col in range(len(self.__mat_1[0])):
@@ -165,7 +165,7 @@ class Matriz:
         
         print('-----Promedio-----')
         print(f"El promedio de todos los elementos del arreglo es: {pro:.0f}")
-        
+
     def cantidad(self):
         can = 1
         while can < 2:
@@ -185,3 +185,71 @@ class Matriz:
                 print(f"{self.__mat[ren][ren]}", end=' ')
         else:
             print("La matriz no tiene diagonal")
+            
+    def par_impar(self):
+        con = 0
+        for ren in self.__mat:
+            for col in ren:
+                if col % 2 == 0:
+                    con += 1
+        self.__par = [0 for _ in range(con)]
+        self.__imp = [0 for _ in range(len(self.__mat) * len(self.__mat[0]) - con)]
+        
+        pos_p = 0
+        pos_i = 0
+        for ren in self.__mat:
+            for col in ren:
+                if col % 2 == 0:
+                    self.__par[pos_p] = col
+                    pos_p += 1
+                else:
+                    self.__imp[pos_i] = col
+                    pos_i += 1
+                    # Construir una matriz y llenarlo de elementos aleatorios en donde
+                    # ningun elemento puede estar repetido, posteriormente ordenelo y presentelo
+        
+    def mostrarv(self):
+        print('-----Números pares-----')
+        print(self.__par)
+        print('-----Números impares-----')
+        print(self.__imp)
+        
+    def aleatorios_nr(self):
+        fin = 25
+        
+        for ren in range(len(self.__mat)):
+            for col in range(len(self.__mat[ren])):
+                ban = True
+                while ban:
+                    num = random.randint(1, fin)
+                    
+                    banRep = False
+                    for i in range(ren + 1):
+                        for j in range(len(self.__mat[0])):
+                            if self.__mat[i][j] == num:
+                                banRep = True
+                                break
+                        if banRep:
+                            break
+                    
+                    if not banRep:
+                        self.__mat[ren][col] = num
+                        ban = False
+    def ordenar(self):
+        elementos = [elemento for fila in self.__mat for elemento in fila]
+        
+        n = len(elementos)
+        for _ in range(n):
+            cambio = False
+            for i in range(n - 1):
+                if elementos[i] > elementos[i + 1]:
+                    elementos[i], elementos[i + 1] = elementos[i + 1], elementos[i]
+                    cambio = True
+            if not cambio:
+                break
+        
+        filas = len(self.__mat)
+        columnas = len(self.__mat[0])
+        for i in range(filas):
+            for j in range(columnas):
+                self.__mat[i][j] = elementos[i * columnas + j]
