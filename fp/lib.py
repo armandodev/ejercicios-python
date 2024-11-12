@@ -36,20 +36,20 @@ class FechaHora:
     def __init__(self):
         locale.setlocale(locale.LC_ALL, 'es_MX.UTF-8')
         self.__ofh = datetime.datetime.now()
+    
+    def fecha(self):
+        return self.__ofh.strftime('%d-%m-%Y')
         
-    def fechal(self):
+    def fecha_l(self):
         return self.__ofh.strftime('%A, %d de %B de %Y')
     
-    def fechas(self):
-        return self.__ofh.strftime('%d-%m-%Y')
-    
-    def fechasm(self):
+    def fecha_m(self):
         return self.__ofh.strftime('%d-%b-%Y')
     
     def hora(self):
         return self.__ofh.strftime('%I:%M:%S %p')
     
-    def horam(self):
+    def hora_m(self):
         return self.__ofh.strftime('%H:%M:%S hrs.')
     
     def edad(self, dia, mes, año):
@@ -80,6 +80,7 @@ class Formato:
         return f"$ {dato:,.2f}"
 
 class Menú:
+    obd = Datos()
     def __init__(self, titulo = 'MENÚ PRINCIPAL', opciones=None):
         self.__titulo = titulo.upper()
         self.__opciones = ['' for _ in range(len(opciones) + 1)]
@@ -92,12 +93,11 @@ class Menú:
         for i in range(len(self.__opciones)):
             print(f"  {i + 1}) {self.__opciones[i]}")
             
-    def opcion(self):
-        obd = Datos()
+    def opción(self):
         op = 0
         while op < 1 or op > len(self.__opciones):
             self.__mostrar()
-            op = obd.entero('SELECCIONA UNA OPCIÓN: ')
+            op = self.obd.entero('SELECCIONA UNA OPCIÓN: ')
         return op
     
     def salir(self):

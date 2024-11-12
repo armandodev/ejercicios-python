@@ -5,8 +5,8 @@ class Producto():
     def __init__(self):
         obd = Datos()
         print('-----Ingresa los datos del producto-----')
-        self.__clv = 0
-        while self.__clv < 1:
+        self.__clv = -1
+        while self.__clv < 0:
             self.__clv = obd.entero('Clave: ')
         self.__nom = ''
         while self.__nom == '':
